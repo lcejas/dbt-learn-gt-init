@@ -7,4 +7,10 @@ models:
           - unique
           - not_null
           
-        
+  - name: stg_jaffle_Shop__order
+    description: description
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null        
