@@ -1,0 +1,7 @@
+sources:
+  - name: toastie_shop_training
+    database: raw
+    schema: toasite_shop
+    tables:
+      - name: customers
+      - name: orders
