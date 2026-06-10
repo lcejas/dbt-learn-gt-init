@@ -1,0 +1,8 @@
+sources:
+  - name: jaffle_shop_training
+    database: raw
+    schema: jaffle_shop
+    tables:
+      - name: customers
+      - name: order_training
+        identifier: orders
