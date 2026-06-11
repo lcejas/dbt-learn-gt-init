@@ -1,0 +1,30 @@
+models:
+  - name: stg_jaffle_shop_training_customers
+    description: one record per customer
+    columns:
+      - name: id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_jaffle_shop_training_orders_training
+    description: one record per order
+    columns:
+      - name: id
+        description: primary key
+        data_tests:
+          - unique
+          - not_null
+
+      - name: status
+        description: "{{ doc('order_status')}}"
+        data_tests:
+          - accepted_values:
+              arguments: # available in v1.10.5 and higher. Older versions can set the <argument_name> as the top-level property.
+                values: ['placed', 'shipped', 'completed', 'returned']
+      - name: customer_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('customers')
+                field: id

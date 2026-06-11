@@ -1,15 +1,21 @@
 sources:
 
   - name: jaffle_shop_training
-
+    description: a replica of the postgres database
     database: raw
-
     schema: jaffle_shop
-
     tables:
-
       - name: customers
+        columns:
+        - name: id
+          data_tests:
+           - unique
+           - not_null
 
       - name: orders_training
-
         identifier: orders
+        description: one record per order
+
+
+
+  
