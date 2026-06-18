@@ -2,7 +2,8 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'jaffle_shop'
+# name: 'jaffle_shop'
+name: 'dbt-learn-gt-init'
 version: '1.0.0'
 config-version: 2
 
@@ -34,6 +35,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   jaffle_shop:
-    +materialized: view
+    #+materialized: view
+    marts:
+      +materialized: table
+
+    staging:
+      +materialized: view
+
 
     
