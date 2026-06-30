@@ -1,0 +1,129 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    description: Tables in the jaffle_shop schema with raw business data
+    database: raw
+    tables:
+      - name: customer_web_activity
+        columns:
+          - name: customer_id
+            data_type: number
+          - name: web_session_length
+            data_type: number
+          - name: session_date
+            data_type: date
+          - name: count_pages_visited
+            data_type: number
+          - name: device_type
+            data_type: varchar
+          - name: referrer_source
+            data_type: varchar
+
+      - name: customers
+        description: raw customers tables with names and ids
+        columns:
+          - name: id
+            description: unique customer id
+            data_type: number
+            data_tests:
+              - unique
+              - not_null
+          - name: first_name
+            data_type: varchar
+          - name: last_name
+            data_type: varchar
+
+      - name: items
+        columns:
+          - name: id
+            data_type: varchar
+          - name: order_id
+            data_type: varchar
+          - name: sku
+            data_type: varchar
+
+      - name: locations
+        columns:
+          - name: location_id
+            data_type: varchar
+          - name: location_name
+            data_type: varchar
+          - name: tax_rate
+            data_type: number
+          - name: opened_date
+            data_type: timestamp_ntz
+
+      - name: order_items
+        columns:
+          - name: order_item_id
+            data_type: varchar
+          - name: order_id
+            data_type: varchar
+          - name: product_id
+            data_type: varchar
+          - name: ordered_at
+            data_type: timestamp_ntz
+          - name: product_name
+            data_type: varchar
+          - name: product_price
+            data_type: number
+          - name: is_food_item
+            data_type: boolean
+          - name: is_drink_item
+            data_type: boolean
+          - name: supply_cost
+            data_type: number
+
+      - name: orders
+        columns:
+          - name: id
+            data_type: number
+            data_tests:
+              - unique
+              - not_null
+          - name: user_id
+            data_type: number
+          - name: order_date
+            data_type: date
+          - name: status
+            data_type: varchar
+          - name: _etl_loaded_at
+            data_type: timestamp_ntz
+
+      - name: products
+        columns:
+          - name: sku
+            data_type: varchar
+          - name: name
+            data_type: varchar
+          - name: type
+            data_type: varchar
+          - name: price
+            data_type: number
+          - name: description
+            data_type: varchar
+
+      - name: stores
+        columns:
+          - name: id
+            data_type: varchar
+          - name: name
+            data_type: varchar
+          - name: opened_at
+            data_type: timestamp_ntz
+          - name: tax_rate
+            data_type: number
+
+      - name: supplies
+        columns:
+          - name: id
+            data_type: varchar
+          - name: name
+            data_type: varchar
+          - name: cost
+            data_type: number
+          - name: perishable
+            data_type: boolean
+          - name: sku
+            data_type: varchar
