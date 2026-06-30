@@ -10,8 +10,12 @@ sources:
           - name: id
             data_type: number
             data_tests:
-              - not_null      
-              - unique              
+              - not_null 
+              - unique:
+                  config:
+                    severity: error
+                    error_if: ">1000"
+                    warn_if: ">10"           
           - name: first_name
             data_type: varchar
           - name: last_name
@@ -75,7 +79,8 @@ sources:
           - name: id
             data_type: varchar
             data_tests:
-              - not_null              
+              - not_null
+                            
           - name: name
             data_type: varchar
           - name: cost
